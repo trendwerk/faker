@@ -10,12 +10,13 @@
       "homepage": "https://github.com/haroldangenent"
     }
   ],
-  "minimum-stability": "dev",
   "autoload": {
-    "files": ["command.php"],
+    "files": ["init.php"],
     "psr-4": {
       "Trendwerk\\Faker\\": "src/"
     }
   },
-  "require": {}
+  "require": {
+    "nelmio/alice": "^2.2"
+  }
 }

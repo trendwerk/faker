@@ -17,5 +17,10 @@ final class Command
         if (! file_exists($fileName)) {
             WP_CLI::error('Input file not found.');
         }
+
+        $faker = new Faker($fileName);
+        $count = $faker->run();
+
+        WP_CLI::success(sprintf('Generated %d new posts.', $count));
     }
 }
