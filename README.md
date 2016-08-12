@@ -94,7 +94,7 @@ _Using `<terms>` is not required. You could also provide an array of integers yo
 | `amount` | `1` | No
 
 ### ACF
-```
+```yaml
 Trendwerk\Faker\Post:
   post{1..100}:
     post_content: <paragraphs(3, true)>
@@ -109,7 +109,7 @@ Generates 100 posts with a title, content, and two filled ACF fields: `name` and
 #### Duplicate field names
 In ACF, it is possible to have multiple fields with the same name. This could cause formatting conflicts when faking data with this library. If you have two fields with the same name, **using the unique field key is recommended**:
 
-```
+```yaml
 Trendwerk\Faker\Post:
   post{1..100}:
     post_content: <paragraphs(3, true)>
