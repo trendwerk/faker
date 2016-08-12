@@ -1,0 +1,18 @@
+{
+  "name": "trendwerk/faker",
+  "description": "Fake data with WP-CLI.",
+  "homepage": "https://github.com/trendwerk/faker",
+  "license": "GPL-3.0+",
+  "authors": [
+    {
+      "name": "Harold Angenent",
+      "email": "harold@trendwerk.nl",
+      "homepage": "https://github.com/haroldangenent"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "files": ["command.php"]
+  },
+  "require": {}
+}
