@@ -14,7 +14,7 @@ final class Faker
 
     public function run()
     {
-        $loader = new Loader();
+        $loader = new Loader(get_locale());
         $posts = $loader->load($this->file);
 
         foreach ($posts as $post) {
