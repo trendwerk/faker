@@ -10,7 +10,7 @@ final class Command
      *
      * @synopsis <file>
      */
-    public function fake($args = [])
+    public function fake(array $args = [])
     {
         $fileName = $args[0];
 

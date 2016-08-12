@@ -24,7 +24,7 @@ final class Faker
         return count($posts);
     }
 
-    private function persist($post)
+    private function persist(Post $post)
     {
         $postId = wp_insert_post($post->getPostData());
 
