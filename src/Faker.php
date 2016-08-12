@@ -30,8 +30,17 @@ final class Faker
 
         update_post_meta($postId, '_fake', true);
 
-        foreach ($post->getMeta() as $key => $value) {
-            update_post_meta($postId, $key, $value);
+        if ($post->getMeta()) {
+            foreach ($post->getMeta() as $key => $value) {
+                update_post_meta($postId, $key, $value);
+            }
+        }
+
+        if (class_exists('acf') && $post->getAcf()) {
+            foreach ($post->getAcf() as $name => $value) {
+                $field = acf_get_field($name);
+                update_field($field['key'], $value, $postId);
+            }
         }
     }
 }

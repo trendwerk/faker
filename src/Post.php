@@ -5,6 +5,7 @@ use Nelmio\Alice\Fixtures\Loader;
 
 final class Post
 {
+    public $acf;
     public $comment_status;
     public $guid;
     public $menu_order;
@@ -32,6 +33,7 @@ final class Post
         $data = get_object_vars($this);
 
         unset($data['meta']);
+        unset($data['acf']);
 
         return array_filter($data);
     }
@@ -39,5 +41,10 @@ final class Post
     public function getMeta()
     {
         return $this->meta;
+    }
+
+    public function getAcf()
+    {
+        return $this->acf;
     }
 }
