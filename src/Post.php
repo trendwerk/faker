@@ -16,7 +16,7 @@ final class Post
     {
         $data = get_object_vars($this);
 
-        unset($data[$this->getMetaField()]);
+        unset($data['meta']);
 
         return $data;
     }
@@ -24,10 +24,5 @@ final class Post
     public function getMeta()
     {
         return $this->meta;
-    }
-
-    private function getMetaField()
-    {
-        return 'meta';
     }
 }
