@@ -26,16 +26,23 @@ final class Post
     public $post_status = 'publish';
     public $post_title;
     public $post_type;
+    public $terms;
     public $to_ping;
 
     public function getPostData()
     {
         $data = get_object_vars($this);
 
-        unset($data['meta']);
         unset($data['acf']);
+        unset($data['meta']);
+        unset($data['terms']);
 
         return array_filter($data);
+    }
+
+    public function getAcf()
+    {
+        return $this->acf;
     }
 
     public function getMeta()
@@ -43,8 +50,8 @@ final class Post
         return $this->meta;
     }
 
-    public function getAcf()
+    public function getTerms()
     {
-        return $this->acf;
+        return $this->terms;
     }
 }

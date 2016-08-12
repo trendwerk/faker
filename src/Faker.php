@@ -14,7 +14,7 @@ final class Faker
 
     public function run()
     {
-        $loader = new Loader(get_locale());
+        $loader = new Loader(get_locale(), [new Provider\Term()]);
         $posts = $loader->load($this->file);
 
         foreach ($posts as $post) {
@@ -40,6 +40,12 @@ final class Faker
             foreach ($post->getAcf() as $name => $value) {
                 $field = acf_get_field($name);
                 update_field($field['key'], $value, $postId);
+            }
+        }
+
+        if ($post->getTerms()) {
+            foreach ($post->getTerms() as $taxonomy => $termIds) {
+                wp_set_object_terms($postId, $termIds, $taxonomy);
             }
         }
     }
