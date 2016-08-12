@@ -16,6 +16,9 @@
       "Trendwerk\\Faker\\": "src/"
     }
   },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "2.*"
+  },
   "require": {
     "nelmio/alice": "^2.2"
   }

@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "beepbeep": "^1.2.0",
+    "gulp": "^3.9.1",
+    "gulp-cached": "^1.1.0",
+    "gulp-phpcs": "^1.1.1",
+    "gulp-plumber": "^1.1.0"
+  },
+  "scripts": {
+    "postinstall": "composer install && gulp"
+  }
+}
