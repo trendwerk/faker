@@ -6,9 +6,9 @@ use Nelmio\Alice\Fixtures\Loader;
 final class Post
 {
     public $meta;
-    public $post_author;
+    public $post_author = 1;
     public $post_content;
-    public $post_status;
+    public $post_status = 'publish';
     public $post_title;
     public $post_type;
 
