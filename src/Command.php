@@ -6,7 +6,7 @@ use WP_CLI;
 final class Command
 {
     /**
-     * Generate fake data based on a fixture.
+     * Generate fake data based on an Alice YAML file.
      *
      * @synopsis <file>
      */
