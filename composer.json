@@ -12,7 +12,10 @@
   ],
   "minimum-stability": "dev",
   "autoload": {
-    "files": ["command.php"]
+    "files": ["command.php"],
+    "psr-4": {
+      "Trendwerk\\Faker\\": "src/"
+    }
   },
   "require": {}
 }
