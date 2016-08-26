@@ -15,11 +15,9 @@ if ( file_exists( __DIR__ . '/utils.php' ) ) {
 	$project_composer = dirname( dirname( dirname( __FILE__ ) ) ) . '/composer.json';
 	if ( file_exists( $project_composer ) ) {
 		$composer = json_decode( file_get_contents( $project_composer ) );
-		if ( ! empty( $composer->autoload->files ) ) {
+		if ( ! empty( $composer->autoload ) ) {
 			$contents = 'require:' . PHP_EOL;
-			foreach( $composer->autoload->files as $file ) {
-				$contents .= '  - ' . dirname( dirname( dirname( __FILE__ ) ) ) . '/' . $file;
-			}
+			$contents .= '  - ' . dirname( dirname( dirname( __FILE__ ) ) ) . '/vendor/autoload.php';
 			@mkdir( sys_get_temp_dir() . '/wp-cli-package-test/' );
 			$project_config = sys_get_temp_dir() . '/wp-cli-package-test/config.yml';
 			file_put_contents( $project_config, $contents );
