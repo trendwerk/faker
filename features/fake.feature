@@ -39,6 +39,12 @@ Feature: Fake data
       Generated 30 new posts.
       """
 
+    When I run `wp post list --meta_key=_fake --format=count --post_type=page`
+    Then STDOUT should be:
+      """
+      30
+      """
+
   Scenario: Generate posts with a category
     Given a WP install
     And a post.yml file:
@@ -55,4 +61,10 @@ Feature: Fake data
     Then STDOUT should contain:
       """
       Generated 15 new posts.
+      """
+
+    When I run `wp post list --meta_key=_fake --format=count`
+    Then STDOUT should be:
+      """
+      15
       """
