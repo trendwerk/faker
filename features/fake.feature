@@ -15,6 +15,11 @@ Feature: Fake data
       """
       Generated 10 new posts.
       """
+    When I run `wp post list --meta_key=_fake --format=count`
+    Then STDOUT should be:
+      """
+      10
+      """
 
   Scenario: Generate pages
     Given a WP install
