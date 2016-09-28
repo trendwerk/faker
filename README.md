@@ -1,6 +1,8 @@
 # Faker
 Fake post data with [wp-cli](https://github.com/wp-cli/wp-cli). Made for WordPress.
 
+[![Build Status](https://travis-ci.org/trendwerk/faker.svg?branch=master)](https://travis-ci.org/trendwerk/faker)
+
 Relies on [nelmio/alice](https://github.com/nelmio/alice) and [fzaninotto/Faker](https://github.com/fzaninotto/Faker).
 
 ## Install
