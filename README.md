@@ -13,14 +13,22 @@ wp package install trendwerk/faker
 Requires [wp-cli](https://github.com/wp-cli/wp-cli) >= 0.23.
 
 ## Usage
+
+### Generate fake data
 ```
 wp faker fake <file>
 ```
 
-### Options
+#### Options
 | Parameter | Default | Required | Description |
 | :--- | :--- | :--- | :--- |
 | `<file>` | `null` | Yes | Location to an [Alice](https://github.com/nelmio/alice) YAML file
+
+### Delete fake data
+
+```
+wp faker delete
+```
 
 ## Support
 The YAML file supports:
@@ -94,6 +102,30 @@ _Using `<terms>` is not required. You could also provide an array of integers yo
 | :--- | :--- | :--- |
 | `taxonomy` | `null` | Yes
 | `amount` | `1` | No
+
+### Thumbnails
+
+```yaml
+Trendwerk\Faker\Post:
+  post{1..30}:
+    post_content: <paragraphs(4, true)>
+    post_title: '<sentence()>'
+    post_thumbnail: <thumbnail(800, 800, 'nature')>
+```
+
+Generates 30 posts with a title, content and a post thumbnail sized at 800x800 pixels from the 'nature' category of [http://lorempixel.com/](http://lorempixel.com/). 
+
+Available image categories can be found [here](https://github.com/fzaninotto/Faker/blob/master/src/Faker/Provider/Image.php#L10). The category parameter is optional. If not provided, images will be picked up randomly accross categories. 
+
+_Images are downloaded and resized by WordPress. Depending of the amount of generated posts, the process may take a while._
+
+#### Options
+
+| Parameter | Default | Required
+| :--- | :--- | :--- |
+| `width` | `640` | No
+| `height` | `480` | No
+| `category` | `null` | No
 
 ### ACF
 ```yaml
