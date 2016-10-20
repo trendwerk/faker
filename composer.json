@@ -1,6 +1,7 @@
 {
   "name": "trendwerk/faker",
   "description": "Fake post data with WP-CLI.",
+  "type": "wp-cli-package",
   "homepage": "https://github.com/trendwerk/faker",
   "license": "GPL-3.0+",
   "authors": [
