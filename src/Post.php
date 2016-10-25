@@ -1,8 +1,6 @@
 <?php
 namespace Trendwerk\Faker;
 
-use Nelmio\Alice\Fixtures\Loader;
-
 final class Post
 {
     public $acf;
