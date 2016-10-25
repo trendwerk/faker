@@ -24,6 +24,7 @@ final class Post
     public $post_status = 'publish';
     public $post_title;
     public $post_type;
+    public $post_thumbnail;
     public $terms;
     public $to_ping;
 
@@ -41,6 +42,11 @@ final class Post
     public function getAcf()
     {
         return $this->acf;
+    }
+
+    public function getPostThumbnail()
+    {
+        return $this->post_thumbnail;
     }
 
     public function getMeta()

@@ -14,7 +14,7 @@ final class Faker
 
     public function run()
     {
-        $loader = new Loader(get_locale(), [new Provider\Term()]);
+        $loader = new Loader(get_locale(), [new Provider\Term(), new Provider\PostThumbnail()]);
         $posts = $loader->load($this->file);
 
         foreach ($posts as $post) {
@@ -29,6 +29,10 @@ final class Faker
         $postId = wp_insert_post($post->getPostData());
 
         update_post_meta($postId, '_fake', true);
+
+        if ($thumbnailId = $post->getPostThumbnail()) {
+            set_post_thumbnail( $postId, $thumbnailId );
+        }
 
         if ($post->getMeta()) {
             foreach ($post->getMeta() as $key => $value) {
