@@ -1,7 +1,7 @@
 <?php
 namespace Trendwerk\Faker\Entity;
 
-class Post
+class Post extends Entity
 {
     public $acf;
     public $comment_status;
@@ -51,5 +51,9 @@ class Post
     public function getTerms()
     {
         return $this->terms;
+    }
+
+    public function save()
+    {
     }
 }
