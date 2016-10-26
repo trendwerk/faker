@@ -39,21 +39,6 @@ class Post extends Entity
         return array_filter($data);
     }
 
-    private function getAcf()
-    {
-        return $this->acf;
-    }
-
-    private function getMeta()
-    {
-        return $this->meta;
-    }
-
-    private function getTerms()
-    {
-        return $this->terms;
-    }
-
     public function save()
     {
         $this->id = wp_insert_post($this->getPostData());
