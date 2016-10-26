@@ -60,21 +60,21 @@ class Post extends Entity
 
         update_post_meta($this->id, '_fake', true);
 
-        if ($this->getMeta()) {
-            foreach ($this->getMeta() as $key => $value) {
+        if ($this->meta) {
+            foreach ($this->meta as $key => $value) {
                 update_post_meta($this->id, $key, $value);
             }
         }
 
-        if (class_exists('acf') && $this->getAcf()) {
-            foreach ($this->getAcf() as $name => $value) {
+        if (class_exists('acf') && $this->acf) {
+            foreach ($this->acf as $name => $value) {
                 $field = acf_get_field($name);
                 update_field($field['key'], $value, $this->id);
             }
         }
 
-        if ($this->getTerms()) {
-            foreach ($this->getTerms() as $taxonomy => $termIds) {
+        if ($this->terms) {
+            foreach ($this->terms as $taxonomy => $termIds) {
                 wp_set_object_terms($this->id, $termIds, $taxonomy);
             }
         }
