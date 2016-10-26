@@ -28,7 +28,7 @@ class Post extends Entity
     public $terms;
     public $to_ping;
 
-    public function getPostData()
+    private function getPostData()
     {
         $data = get_object_vars($this);
 
@@ -39,17 +39,17 @@ class Post extends Entity
         return array_filter($data);
     }
 
-    public function getAcf()
+    private function getAcf()
     {
         return $this->acf;
     }
 
-    public function getMeta()
+    private function getMeta()
     {
         return $this->meta;
     }
 
-    public function getTerms()
+    private function getTerms()
     {
         return $this->terms;
     }
