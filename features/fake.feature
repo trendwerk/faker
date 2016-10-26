@@ -4,7 +4,7 @@ Feature: Fake data
     Given a WP install
     And a post.yml file:
     """
-    Trendwerk\Faker\Post:
+    Trendwerk\Faker\Entity\Post:
       post{1..10}:
         post_content: <paragraphs(4, true)>
         post_title: '<sentence()>'
@@ -26,7 +26,7 @@ Feature: Fake data
     Given a WP install
     And a post.yml file:
     """
-    Trendwerk\Faker\Post:
+    Trendwerk\Faker\Entity\Post:
       post{1..30}:
         post_content: <paragraphs(4, true)>
         post_title: '<sentence()>'
@@ -49,7 +49,7 @@ Feature: Fake data
     Given a WP install
     And a post.yml file:
     """
-    Trendwerk\Faker\Post:
+    Trendwerk\Faker\Entity\Post:
       post{1..15}:
         post_content: <paragraphs(4, true)>
         post_title: '<sentence()>'
