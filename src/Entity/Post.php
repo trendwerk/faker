@@ -5,6 +5,7 @@ class Post extends Entity
 {
     public $acf;
     public $comment_status;
+    public $id;
     public $guid;
     public $menu_order;
     public $meta;
@@ -55,5 +56,27 @@ class Post extends Entity
 
     public function save()
     {
+        $this->id = wp_insert_post($this->getPostData());
+
+        update_post_meta($this->id, '_fake', true);
+
+        if ($this->getMeta()) {
+            foreach ($this->getMeta() as $key => $value) {
+                update_post_meta($this->id, $key, $value);
+            }
+        }
+
+        if (class_exists('acf') && $this->getAcf()) {
+            foreach ($this->getAcf() as $name => $value) {
+                $field = acf_get_field($name);
+                update_field($field['key'], $value, $this->id);
+            }
+        }
+
+        if ($this->getTerms()) {
+            foreach ($this->getTerms() as $taxonomy => $termIds) {
+                wp_set_object_terms($this->id, $termIds, $taxonomy);
+            }
+        }
     }
 }
