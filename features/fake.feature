@@ -22,6 +22,28 @@ Feature: Fake data
       10
       """
 
+  Scenario: Generate posts using deprecated Faker\Post
+    Given a WP install
+    And a post.yml file:
+    """
+    Trendwerk\Faker\Post:
+      post{1..10}:
+        post_content: <paragraphs(4, true)>
+        post_title: '<sentence()>'
+    """
+
+    When I run `wp faker fake post.yml`
+    Then STDOUT should contain:
+      """
+      Generated 10 new posts.
+      """
+
+    When I run `wp post list --meta_key=_fake --format=count`
+    Then STDOUT should be:
+      """
+      10
+      """
+
   Scenario: Generate pages
     Given a WP install
     And a post.yml file:
