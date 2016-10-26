@@ -42,7 +42,7 @@ For more understanding of the internals:
 
 ### Basic
 ```yaml
-Trendwerk\Faker\Post:
+Trendwerk\Faker\Entity\Post:
   post{1..100}:
     post_content: <paragraphs(4, true)>
     post_title: '<sentence()>'
@@ -52,7 +52,7 @@ Generates 100 posts with a title and content.
 
 ### Post Type
 ```yaml
-Trendwerk\Faker\Post:
+Trendwerk\Faker\Entity\Post:
   post{1..100}:
     post_title: '<sentence()>'
     post_type: 'testimonials'
@@ -62,7 +62,7 @@ Generates 100 posts from the post type `testimonials` with a title.
 
 ### Meta
 ```yaml
-Trendwerk\Faker\Post:
+Trendwerk\Faker\Entity\Post:
   post{1..100}:
     post_title: '<sentence()>'
     post_type: 'testimonials'
@@ -75,7 +75,7 @@ Generates 100 testimonials with a title and a custom field called `name` and one
 
 ### Terms
 ```yaml
-Trendwerk\Faker\Post:
+Trendwerk\Faker\Entity\Post:
   post{1..100}:
     post_content: <paragraphs(3, true)>
     post_title: '<sentence()>'
@@ -97,7 +97,7 @@ _Using `<terms>` is not required. You could also provide an array of integers yo
 
 ### ACF
 ```yaml
-Trendwerk\Faker\Post:
+Trendwerk\Faker\Entity\Post:
   post{1..100}:
     post_content: <paragraphs(3, true)>
     post_title: '<sentence()>'
@@ -112,7 +112,7 @@ Generates 100 posts with a title, content, and two filled ACF fields: `name` and
 In ACF, it is possible to have multiple fields with the same name. This could cause formatting conflicts when faking data with this library. If you have two fields with the same name, **using the unique field key is recommended**:
 
 ```yaml
-Trendwerk\Faker\Post:
+Trendwerk\Faker\Entity\Post:
   post{1..100}:
     post_content: <paragraphs(3, true)>
     post_title: '<sentence()>'
