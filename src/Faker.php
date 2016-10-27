@@ -1,24 +1,23 @@
 <?php
 namespace Trendwerk\Faker;
 
-use Nelmio\Alice\Fixtures\Loader;
+use Nelmio\Alice\Fixtures;
 
 final class Faker
 {
-    private $file;
+    private $files;
 
-    public function __construct($file)
+    public function __construct($files)
     {
-        $this->file = $file;
+        $this->files = $files;
     }
 
     public function run()
     {
-        $loader = new Loader(get_locale(), [new Provider\Term()]);
-        $objects = $loader->load($this->file);
-
-        $persister = new Persister();
-        $persister->persist($objects);
+        $objects = Fixtures::load($this->files, new Persister(), [
+            'locale'    => get_locale(),
+            'providers' => [new Provider\Term()],
+        ]);
 
         return count($objects);
     }
