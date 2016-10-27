@@ -23,12 +23,15 @@ Feature: Fake attachments
 
     Scenario: Generate posts, images and association
       Given a WP install
-      And a post-image.yml file:
+      And a post.yml file:
       """
       Trendwerk\Faker\Entity\Image:
         image{1..1}:
           data: '<image()>'
+      """
 
+      And a image.yml file:
+      """
       Trendwerk\Faker\Post:
         post{1..1}:
           post_content: <paragraphs(3, true)>
@@ -37,7 +40,7 @@ Feature: Fake attachments
             _thumbnail_id: '@image*->id'
       """
 
-      When I run `wp faker fake post-image.yml`
+      When I run `wp faker fake post.yml image.yml`
       Then STDOUT should contain:
         """
         Generated 2 new posts.
