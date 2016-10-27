@@ -5,5 +5,6 @@ abstract class Entity
 {
     public $id;
 
+    abstract protected function create();
     abstract public function save();
 }

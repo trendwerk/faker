@@ -27,7 +27,7 @@ class Post extends Entity
     public $terms;
     public $to_ping;
 
-    private function getPostData()
+    protected function getPostData()
     {
         $data = get_object_vars($this);
 
@@ -38,9 +38,14 @@ class Post extends Entity
         return array_filter($data);
     }
 
+    protected function create()
+    {
+        return wp_insert_post($this->getPostData());
+    }
+
     public function save()
     {
-        $this->id = wp_insert_post($this->getPostData());
+        $this->id = $this->create();
 
         update_post_meta($this->id, '_fake', true);
 
