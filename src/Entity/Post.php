@@ -43,7 +43,7 @@ class Post extends Entity
         return wp_insert_post($this->getPostData());
     }
 
-    public function save()
+    public function persist()
     {
         $this->id = $this->create();
 
