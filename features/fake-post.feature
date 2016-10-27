@@ -1,4 +1,4 @@
-Feature: Fake data
+Feature: Fake Entity\Post
 
   Scenario: Generate posts
     Given a WP install
