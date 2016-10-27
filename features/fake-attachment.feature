@@ -6,9 +6,7 @@ Feature: Fake attachments
     """
     Trendwerk\Faker\Entity\Image:
       image{1..3}:
-        type: 'image'
-        settings:
-          data: '<image()>'
+        data: '<image()>'
     """
 
     When I run `wp faker fake image.yml`
