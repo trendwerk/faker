@@ -19,7 +19,7 @@ class Image extends Attachment
         $this->post_mime_type = $fileType['type'];
         $this->post_title = sanitize_file_name(pathinfo($fileName, PATHINFO_FILENAME));
 
-        $attachmentId = wp_insert_attachment($this->getPostData());
+        $attachmentId = wp_insert_attachment($this->getPostData(), $upload['file']);
 
         $metaData = wp_generate_attachment_metadata($attachmentId, $upload['file']);
         wp_update_attachment_metadata($attachmentId, $metaData);
