@@ -13,8 +13,8 @@ wp package install trendwerk/faker
 Requires [wp-cli](https://github.com/wp-cli/wp-cli) >= 0.23.
 
 ## Usage
-```
-wp faker fake <file>
+```sh
+wp faker fake <files>...
 ```
 
 ### Options
@@ -42,7 +42,7 @@ For more understanding of the internals:
 
 ### Basic
 ```yaml
-Trendwerk\Faker\Post:
+Trendwerk\Faker\Entity\Post:
   post{1..100}:
     post_content: <paragraphs(4, true)>
     post_title: '<sentence()>'
@@ -52,7 +52,7 @@ Generates 100 posts with a title and content.
 
 ### Post Type
 ```yaml
-Trendwerk\Faker\Post:
+Trendwerk\Faker\Entity\Post:
   post{1..100}:
     post_title: '<sentence()>'
     post_type: 'testimonials'
@@ -62,7 +62,7 @@ Generates 100 posts from the post type `testimonials` with a title.
 
 ### Meta
 ```yaml
-Trendwerk\Faker\Post:
+Trendwerk\Faker\Entity\Post:
   post{1..100}:
     post_title: '<sentence()>'
     post_type: 'testimonials'
@@ -75,7 +75,7 @@ Generates 100 testimonials with a title and a custom field called `name` and one
 
 ### Terms
 ```yaml
-Trendwerk\Faker\Post:
+Trendwerk\Faker\Entity\Post:
   post{1..100}:
     post_content: <paragraphs(3, true)>
     post_title: '<sentence()>'
@@ -97,7 +97,7 @@ _Using `<terms>` is not required. You could also provide an array of integers yo
 
 ### ACF
 ```yaml
-Trendwerk\Faker\Post:
+Trendwerk\Faker\Entity\Post:
   post{1..100}:
     post_content: <paragraphs(3, true)>
     post_title: '<sentence()>'
@@ -112,7 +112,7 @@ Generates 100 posts with a title, content, and two filled ACF fields: `name` and
 In ACF, it is possible to have multiple fields with the same name. This could cause formatting conflicts when faking data with this library. If you have two fields with the same name, **using the unique field key is recommended**:
 
 ```yaml
-Trendwerk\Faker\Post:
+Trendwerk\Faker\Entity\Post:
   post{1..100}:
     post_content: <paragraphs(3, true)>
     post_title: '<sentence()>'
@@ -120,3 +120,43 @@ Trendwerk\Faker\Post:
       field_56cf2f782e9b1: '<name()>' # Name
       address: '<address()>'
 ```
+
+
+### Attachments
+
+Currently the only type of supported attachments are images.
+
+#### Images
+```yaml
+Trendwerk\Faker\Entity\Image:
+  image{1..3}:
+    data: '<image()>'
+```
+
+Generates 3 image attachments. Images are provided by [Faker](https://github.com/fzaninotto/Faker#fakerproviderimage), which in turn are provided by [LoremPixel](http://lorempixel.com/).
+
+#### Post + (Featured) Image
+```yaml
+# image.yml
+Trendwerk\Faker\Entity\Image:
+  image{1..3}:
+    data: '<image()>'
+```
+
+```yaml
+# post.yml
+Trendwerk\Faker\Post:
+  post{1..1}:
+    post_content: <paragraphs(3, true)>
+    post_title: '<sentence()>'
+    meta:
+      _thumbnail_id: '@image*->id'
+```
+
+You can now supply both files to `wp faker fake`:
+
+```sh
+wp faker fake image.yml post.yml
+```
+
+**Make sure you load the file that contains the referenced objects first.**

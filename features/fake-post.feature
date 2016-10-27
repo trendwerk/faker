@@ -1,6 +1,28 @@
-Feature: Fake data
+Feature: Fake posts
 
   Scenario: Generate posts
+    Given a WP install
+    And a post.yml file:
+    """
+    Trendwerk\Faker\Entity\Post:
+      post{1..10}:
+        post_content: <paragraphs(4, true)>
+        post_title: '<sentence()>'
+    """
+
+    When I run `wp faker fake post.yml`
+    Then STDOUT should contain:
+      """
+      Generated 10 new posts.
+      """
+
+    When I run `wp post list --meta_key=_fake --format=count`
+    Then STDOUT should be:
+      """
+      10
+      """
+
+  Scenario: Generate posts using deprecated Faker\Post
     Given a WP install
     And a post.yml file:
     """
@@ -26,7 +48,7 @@ Feature: Fake data
     Given a WP install
     And a post.yml file:
     """
-    Trendwerk\Faker\Post:
+    Trendwerk\Faker\Entity\Post:
       post{1..30}:
         post_content: <paragraphs(4, true)>
         post_title: '<sentence()>'
@@ -49,7 +71,7 @@ Feature: Fake data
     Given a WP install
     And a post.yml file:
     """
-    Trendwerk\Faker\Post:
+    Trendwerk\Faker\Entity\Post:
       post{1..15}:
         post_content: <paragraphs(4, true)>
         post_title: '<sentence()>'
