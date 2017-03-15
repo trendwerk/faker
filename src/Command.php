@@ -30,4 +30,22 @@ final class Command
 
         WP_CLI::success(sprintf('Generated %d new posts.', $objectCount));
     }
+
+    /**
+     * Delete fake data
+     */
+    public function delete()
+    {
+        WP_CLI::confirm('Are you sure you want remove all fake data?');
+
+        $dataTypes = [
+            'Attachment',
+            'Post',
+        ];
+
+        foreach ($dataTypes as $dataType) {
+            $className = __NAMESPACE__ . '\\Entity\\' . $dataType;
+            $className::delete();
+        }
+    }
 }
