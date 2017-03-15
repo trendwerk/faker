@@ -19,8 +19,13 @@ final class Command
         }
 
         $faker = new Faker($files);
-        $count = $faker->run();
+        $objectCount = $faker->getObjectCount();
 
-        WP_CLI::success(sprintf('Generated %d new posts.', $count));
+        $progressBar = new ProgressBar();
+        $progressBar->start($objectCount);
+
+        $faker->persist($progressBar);
+
+        WP_CLI::success(sprintf('Generated %d new posts.', $objectCount));
     }
 }
