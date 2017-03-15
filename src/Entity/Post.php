@@ -27,22 +27,6 @@ class Post extends Entity
     public $terms;
     public $to_ping;
 
-    protected function getPostData()
-    {
-        $data = get_object_vars($this);
-
-        unset($data['acf']);
-        unset($data['meta']);
-        unset($data['terms']);
-
-        return array_filter($data);
-    }
-
-    protected function create()
-    {
-        return wp_insert_post($this->getPostData());
-    }
-
     public function persist()
     {
         $this->id = $this->create();
@@ -67,5 +51,21 @@ class Post extends Entity
                 wp_set_object_terms($this->id, $termIds, $taxonomy);
             }
         }
+    }
+
+    protected function create()
+    {
+        return wp_insert_post($this->getPostData());
+    }
+
+    protected function getPostData()
+    {
+        $data = get_object_vars($this);
+
+        unset($data['acf']);
+        unset($data['meta']);
+        unset($data['terms']);
+
+        return array_filter($data);
     }
 }
