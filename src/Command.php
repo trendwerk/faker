@@ -26,6 +26,8 @@ final class Command
 
         $faker->persist($progressBar);
 
+        $progressBar->finish();
+
         WP_CLI::success(sprintf('Generated %d new posts.', $objectCount));
     }
 }
