@@ -6,6 +6,7 @@ class Post extends Entity
     public $acf;
     public $comment_status;
     public $guid;
+    public $id;
     public $menu_order;
     public $meta;
     public $ping_status;
