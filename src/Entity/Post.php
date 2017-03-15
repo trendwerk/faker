@@ -1,6 +1,8 @@
 <?php
 namespace Trendwerk\Faker\Entity;
 
+use WP_Query;
+
 class Post extends Entity
 {
     public $acf;
@@ -50,6 +52,25 @@ class Post extends Entity
             foreach ($this->terms as $taxonomy => $termIds) {
                 wp_set_object_terms($this->id, $termIds, $taxonomy);
             }
+        }
+    }
+
+    public static function delete()
+    {
+        $query = new WP_Query([
+            'fields'         => 'ids',
+            'meta_query'     => [
+                [
+                    'key'    => '_fake',
+                    'value'  => true,
+                ],
+            ],
+            'post_status'    => 'any',
+            'posts_per_page' => -1,
+        ]);
+
+        foreach ($query->posts as $id) {
+            wp_delete_post($id, true);
         }
     }
 
