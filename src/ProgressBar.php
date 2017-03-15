@@ -7,7 +7,7 @@ final class ProgressBar
 {
     private $progress;
 
-    public function start(int $count)
+    public function start($count)
     {
         $this->progress = make_progress_bar('Generating fake data...', $count);
     }
