@@ -27,5 +27,7 @@ abstract class Attachment extends Post
         foreach ($query->posts as $id) {
             wp_delete_attachment($id, true);
         }
+
+        return count($query->posts);
     }
 }

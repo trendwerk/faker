@@ -46,7 +46,13 @@ final class Command
 
         foreach ($dataTypes as $dataType) {
             $className = __NAMESPACE__ . '\\Entity\\' . $dataType;
-            $className::delete();
+            $count = $className::delete();
+
+            if ($count > 0) {
+                WP_CLI::log(sprintf('Removed %d %s%s.', $count, strtolower($dataType), $count > 1 ? 's' : ''));
+            }
         }
+
+        WP_CLI::success('Successfully removed fake data.');
     }
 }

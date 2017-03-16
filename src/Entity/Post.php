@@ -73,6 +73,8 @@ class Post extends Entity
         foreach ($query->posts as $id) {
             wp_delete_post($id, true);
         }
+
+        return count($query->posts);
     }
 
     protected function create()
