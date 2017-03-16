@@ -66,6 +66,7 @@ class Post extends Entity
                 ],
             ],
             'post_status'    => 'any',
+            'post_type'      => 'any',
             'posts_per_page' => -1,
         ]);
 
