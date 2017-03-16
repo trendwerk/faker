@@ -38,6 +38,7 @@ final class Command
     {
         WP_CLI::confirm('Are you sure you want remove all fake data?');
 
+        // Sorted by removal specifity
         $dataTypes = [
             'Attachment',
             'Post',
