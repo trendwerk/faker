@@ -33,10 +33,15 @@ final class Command
 
     /**
      * Delete fake data
+     *
+     * ## OPTIONS
+     *
+     * [--yes]
+     * : Delete the fake data without a confirmation prompt.
      */
-    public function delete()
+    public function delete(array $args, array $assocArgs)
     {
-        WP_CLI::confirm('Are you sure you want remove all fake data?');
+        WP_CLI::confirm('Are you sure you want remove all fake data?', $assocArgs);
 
         // Sorted by removal specifity
         $dataTypes = [
