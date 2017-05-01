@@ -1,6 +1,8 @@
 <?php
 namespace Trendwerk\Faker\Entity;
 
+use WP_Query;
+
 class Post extends Entity
 {
     public $acf;
@@ -27,22 +29,6 @@ class Post extends Entity
     public $terms;
     public $to_ping;
 
-    protected function getPostData()
-    {
-        $data = get_object_vars($this);
-
-        unset($data['acf']);
-        unset($data['meta']);
-        unset($data['terms']);
-
-        return array_filter($data);
-    }
-
-    protected function create()
-    {
-        return wp_insert_post($this->getPostData());
-    }
-
     public function persist()
     {
         $this->id = $this->create();
@@ -67,5 +53,43 @@ class Post extends Entity
                 wp_set_object_terms($this->id, $termIds, $taxonomy);
             }
         }
+    }
+
+    public static function delete()
+    {
+        $query = new WP_Query([
+            'fields'         => 'ids',
+            'meta_query'     => [
+                [
+                    'key'    => '_fake',
+                    'value'  => true,
+                ],
+            ],
+            'post_status'    => 'any',
+            'post_type'      => 'any',
+            'posts_per_page' => -1,
+        ]);
+
+        foreach ($query->posts as $id) {
+            wp_delete_post($id, true);
+        }
+
+        return count($query->posts);
+    }
+
+    protected function create()
+    {
+        return wp_insert_post($this->getPostData());
+    }
+
+    protected function getPostData()
+    {
+        $data = get_object_vars($this);
+
+        unset($data['acf']);
+        unset($data['meta']);
+        unset($data['terms']);
+
+        return array_filter($data);
     }
 }
