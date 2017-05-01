@@ -17,10 +17,17 @@ Requires [wp-cli](https://github.com/wp-cli/wp-cli) >= 0.23.
 wp faker fake <files>...
 ```
 
-### Options
+#### Options
 | Parameter | Default | Required | Description |
 | :--- | :--- | :--- | :--- |
 | `<file>` | `null` | Yes | Location to an [Alice](https://github.com/nelmio/alice) YAML file
+
+### Delete data
+```sh
+wp faker delete
+```
+
+Deletes all fake data.
 
 ## Support
 The YAML file supports:
