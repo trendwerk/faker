@@ -22,6 +22,7 @@
     "squizlabs/php_codesniffer": "2.*"
   },
   "require": {
+    "fzaninotto/faker": "^1.8",
     "nelmio/alice": "^2.2"
   }
 }
