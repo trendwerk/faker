@@ -10,7 +10,7 @@ Relies on [nelmio/alice](https://github.com/nelmio/alice) and [fzaninotto/Faker]
 wp package install trendwerk/faker
 ```
 
-Requires [wp-cli](https://github.com/wp-cli/wp-cli) >= 0.23.
+Requires [wp-cli](https://github.com/wp-cli/wp-cli) >= 2.0.
 
 ## Usage
 ```sh
