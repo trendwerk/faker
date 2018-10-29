@@ -12,18 +12,21 @@
     }
   ],
   "autoload": {
-    "files": ["init.php"],
+    "files": [
+      "init.php"
+    ],
     "psr-4": {
       "Trendwerk\\Faker\\": "src/"
     }
   },
-  "require-dev": {
-    "behat/behat": "~2.5",
-    "squizlabs/php_codesniffer": "2.*"
-  },
   "require": {
+    "php": "^5.6 || ^7.0",
     "fzaninotto/faker": "^1.8",
     "nelmio/alice": "^2.2",
     "wp-cli/wp-cli": "^2.0"
+  },
+  "require-dev": {
+    "behat/behat": "^2.5",
+    "squizlabs/php_codesniffer": "^2.9"
   }
 }
