@@ -5,6 +5,8 @@ Fake post data with [wp-cli](https://github.com/wp-cli/wp-cli). Made for WordPre
 
 Relies on [nelmio/alice](https://github.com/nelmio/alice) and [fzaninotto/Faker](https://github.com/fzaninotto/Faker).
 
+Extended with user capabilities by [5queezer/faker](https://github.com/5queezer/faker).
+
 ## Install
 ```
 wp package install trendwerk/faker

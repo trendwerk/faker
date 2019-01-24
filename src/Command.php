@@ -1,4 +1,5 @@
 <?php
+
 namespace Trendwerk\Faker;
 
 use WP_CLI;
@@ -13,7 +14,7 @@ final class Command
     public function fake(array $files = [])
     {
         foreach ($files as $file) {
-            if (! file_exists($file)) {
+            if (!file_exists($file)) {
                 WP_CLI::error('Input file not found.');
             }
         }
@@ -28,11 +29,11 @@ final class Command
 
         $progressBar->finish();
 
-        WP_CLI::success(sprintf('Generated %d new posts.', $objectCount));
+        WP_CLI::success(sprintf('Generated %d new objects.', $objectCount));
     }
 
     /**
-     * Delete fake data
+     * Delete fake data.
      *
      * ## OPTIONS
      *
@@ -47,10 +48,11 @@ final class Command
         $dataTypes = [
             'Attachment',
             'Post',
+            'User',
         ];
 
         foreach ($dataTypes as $dataType) {
-            $className = __NAMESPACE__ . '\\Entity\\' . $dataType;
+            $className = __NAMESPACE__.'\\Entity\\'.$dataType;
             $count = $className::delete();
 
             if ($count > 0) {
