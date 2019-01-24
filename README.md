@@ -135,6 +135,22 @@ Trendwerk\Faker\Entity\Post:
 
 Currently the only type of supported attachments are images.
 
+### Users
+
+```yaml
+Trendwerk\Faker\Entity\User:
+  user{1..10}:
+    user_login: '<username()>'
+    user_pass: '<username()>'
+    first_name: '<firstName()>'
+    last_name: '<lastName()>'
+    display_name: '<firstName()> <lastName()>'
+    user_email: '<email()>'
+    role: 'author'
+```
+
+Generates 10 users with the role of an author.
+
 #### Images
 ```yaml
 Trendwerk\Faker\Entity\Image:
@@ -144,7 +160,7 @@ Trendwerk\Faker\Entity\Image:
 
 Generates 3 image attachments. Images are provided by [Faker](https://github.com/fzaninotto/Faker#fakerproviderimage), which in turn are provided by [LoremPixel](http://lorempixel.com/).
 
-#### Post + (Featured) Image
+#### Post + (Featured) Image + User
 ```yaml
 # image.yml
 Trendwerk\Faker\Entity\Image:
@@ -153,11 +169,22 @@ Trendwerk\Faker\Entity\Image:
 ```
 
 ```yaml
+# user.yml
+Trendwerk\Faker\Entity\User:
+  user{1..10}:
+    user_login: '<username()>'
+    user_pass: '<username()>'
+    user_email: '<email()>'
+    role: 'author'
+```
+
+```yaml
 # post.yml
 Trendwerk\Faker\Post:
   post{1..1}:
     post_content: <paragraphs(3, true)>
     post_title: '<sentence()>'
+    post_author: '@user*->id'
     meta:
       _thumbnail_id: '@image*->id'
 ```
@@ -165,7 +192,7 @@ Trendwerk\Faker\Post:
 You can now supply both files to `wp faker fake`:
 
 ```sh
-wp faker fake image.yml post.yml
+wp faker fake image.yml user.yml post.yml
 ```
 
 **Make sure you load the file that contains the referenced objects first.**
