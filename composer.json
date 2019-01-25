@@ -2,7 +2,7 @@
   "name": "5queezer/faker",
   "description": "Fake post and user data with WP-CLI.",
   "type": "wp-cli-package",
-  "homepage": "https://github.com/trendwerk/faker",
+  "homepage": "https://github.com/5queezer/faker",
   "license": "GPL-3.0+",
   "authors": [
     {
