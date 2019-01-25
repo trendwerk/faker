@@ -37,6 +37,7 @@ The YAML file supports:
 | Fields | Description |
 | :--- | :--- |
 | `WP_Post` | All properties from [`wp_insert_post`](https://developer.wordpress.org/reference/functions/wp_insert_post/)
+| `WP_User` | All properties from [`wp_insert_user`](https://developer.wordpress.org/reference/functions/wp_insert_user/)
 | `meta` | Post meta
 | `terms` | Terms for taxonomies, see [Terms](https://github.com/trendwerk/faker#terms)
 | `acf` | [Advanced Custom Fields](https://www.advancedcustomfields.com/) fields, see [ACF](https://github.com/trendwerk/faker#acf)
@@ -47,7 +48,7 @@ Your YAML file(s) could look like any the examples below.
 For more understanding of the internals:
 - The YAML file is interpreted by [nelmio/alice](https://github.com/nelmio/alice);
 - Any of the functions from [fzaninotto/Faker](https://github.com/fzaninotto/Faker) are available;
-- Additionaly, the [`<terms>`](https://github.com/trendwerk/faker#terms) function is provided by this library.
+- Additionaly, the [`<terms>`](https://github.com/5queezer/faker#terms) function is provided by this library.
 
 ### Basic
 ```yaml
