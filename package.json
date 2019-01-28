@@ -1,29 +1,12 @@
 {
   "devDependencies": {
     "beepbeep": "^1.2.0",
-    "cucumber": "^5.1.0",
     "gulp": "^3.9.1",
-    "gulp-cached": "^1.1.1",
+    "gulp-cached": "^1.1.0",
     "gulp-phpcs": "^1.1.1",
     "gulp-plumber": "^1.1.0"
   },
   "scripts": {
     "postinstall": "composer install && gulp"
-  },
-  "name": "faker",
-  "description": "Fake post data with [wp-cli](https://github.com/wp-cli/wp-cli). Made for WordPress.",
-  "version": "1.0.0",
-  "main": "gulpfile.js",
-  "dependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/5queezer/faker.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/5queezer/faker/issues"
-  },
-  "homepage": "https://github.com/5queezer/faker#readme"
+  }
 }
