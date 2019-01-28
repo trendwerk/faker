@@ -9,7 +9,7 @@ Extended with user capabilities by [5queezer/faker](https://github.com/5queezer/
 
 ## Install
 ```
-wp package install https://github.com/5queezer/faker.git
+wp package install trendwerk/faker
 ```
 
 Requires [wp-cli](https://github.com/wp-cli/wp-cli) >= 2.0.
