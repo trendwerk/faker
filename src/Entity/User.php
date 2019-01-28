@@ -17,14 +17,14 @@ class User extends Entity
     public $last_name; // The user's last name. For new users, will be used to build the second part of the user's display name if $display_name is not specified.
     public $description; // The user's biographical description.
     public $rich_editing; // Whether to enable the rich-editor for the user. False if not empty.
-    public $syntax_highlighting; // (string|bool) Whether to enable the rich code editor for the user. False if not empty.
-    public $comment_shortcuts; // (string|bool) Whether to enable comment moderation keyboard shortcuts for the user. Default false.
-    public $admin_color; // (string) Admin color scheme for the user. Default 'fresh'.
-    public $use_ssl; // (bool) Whether the user should always access the admin over https. Default false.
-    public $user_registered; // (string) Date the user registered. Format is 'Y-m-d H:i:s'.
-    public $show_admin_bar_front; // (string|bool) Whether to display the Admin Bar for the user on the site's front end. Default true.
-    public $role; // (string) User's role.
-    public $locale; // (string) User's locale. Default empty.
+    public $syntax_highlighting; // Whether to enable the rich code editor for the user. False if not empty.
+    public $comment_shortcuts; // Whether to enable comment moderation keyboard shortcuts for the user. Default false.
+    public $admin_color; // Admin color scheme for the user. Default 'fresh'.
+    public $use_ssl; // Whether the user should always access the admin over https. Default false.
+    public $user_registered; // Date the user registered. Format is 'Y-m-d H:i:s'.
+    public $show_admin_bar_front; // Whether to display the Admin Bar for the user on the site's front end. Default true.
+    public $role; // User's role.
+    public $locale; // User's locale. Default empty.
     public $meta; // Users Meta Values
 
     public function persist()
