@@ -48,7 +48,7 @@ Your YAML file(s) could look like any the examples below.
 For more understanding of the internals:
 - The YAML file is interpreted by [nelmio/alice](https://github.com/nelmio/alice);
 - Any of the functions from [fzaninotto/Faker](https://github.com/fzaninotto/Faker) are available;
-- Additionaly, the [`<terms>`](https://github.com/5queezer/faker#terms) function is provided by this library.
+- Additionaly, the [`<terms>`](https://github.com/trendwerk/faker#terms) function is provided by this library.
 
 ### Basic
 ```yaml
