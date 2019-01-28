@@ -1,5 +1,5 @@
 {
-  "name": "5queezer/faker",
+  "name": "trendwerk/faker",
   "description": "Fake post and user data with WP-CLI.",
   "type": "wp-cli-package",
   "homepage": "https://github.com/5queezer/faker",
@@ -31,7 +31,7 @@
     "wp-cli/wp-cli": "^2.0"
   },
   "require-dev": {
-    "behat/behat": "~2.5",
+    "behat/behat": "^2.5",
     "squizlabs/php_codesniffer": "^2.9"
   }
 }
