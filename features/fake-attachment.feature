@@ -12,7 +12,7 @@ Feature: Fake attachments
     When I run `wp faker fake image.yml`
     Then STDOUT should contain:
       """
-      Generated 3 new posts.
+      Generated 3 new objects.
       """
 
     When I run `wp post list --post_type=attachment --post_mime_type=image/jpeg --meta_key=_fake --format=count`
@@ -43,7 +43,7 @@ Feature: Fake attachments
       When I run `wp faker fake image.yml post.yml`
       Then STDOUT should contain:
         """
-        Generated 2 new posts.
+        Generated 2 new objects.
         """
 
       When I run `wp post list --post_type=attachment --post_mime_type=image/jpeg --meta_key=_fake --format=ids`

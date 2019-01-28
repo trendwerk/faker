@@ -13,7 +13,7 @@ Feature: Fake posts
     When I run `wp faker fake post.yml`
     Then STDOUT should contain:
       """
-      Generated 10 new posts.
+      Generated 10 new objects.
       """
 
     When I run `wp post list --meta_key=_fake --format=count`
@@ -35,7 +35,7 @@ Feature: Fake posts
     When I run `wp faker fake post.yml`
     Then STDOUT should contain:
       """
-      Generated 10 new posts.
+      Generated 10 new objects.
       """
 
     When I run `wp post list --meta_key=_fake --format=count`
@@ -58,7 +58,7 @@ Feature: Fake posts
     When I run `wp faker fake post.yml`
     Then STDOUT should contain:
       """
-      Generated 30 new posts.
+      Generated 30 new objects.
       """
 
     When I run `wp post list --meta_key=_fake --format=count --post_type=page`
@@ -82,7 +82,7 @@ Feature: Fake posts
     When I run `wp faker fake post.yml`
     Then STDOUT should contain:
       """
-      Generated 15 new posts.
+      Generated 15 new objects.
       """
 
     When I run `wp post list --meta_key=_fake --format=count`
