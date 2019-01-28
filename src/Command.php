@@ -14,7 +14,7 @@ final class Command
     public function fake(array $files = [])
     {
         foreach ($files as $file) {
-            if (!file_exists($file)) {
+            if (! file_exists($file)) {
                 WP_CLI::error('Input file not found.');
             }
         }
@@ -33,7 +33,7 @@ final class Command
     }
 
     /**
-     * Delete fake data.
+     * Delete fake data
      *
      * ## OPTIONS
      *
@@ -52,7 +52,7 @@ final class Command
         ];
 
         foreach ($dataTypes as $dataType) {
-            $className = __NAMESPACE__.'\\Entity\\'.$dataType;
+            $className = __NAMESPACE__ . '\\Entity\\' . $dataType;
             $count = $className::delete();
 
             if ($count > 0) {
