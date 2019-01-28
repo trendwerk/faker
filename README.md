@@ -190,7 +190,7 @@ Trendwerk\Faker\Post:
       _thumbnail_id: '@image*->id'
 ```
 
-You can now supply both files to `wp faker fake`:
+You can now supply all three files to `wp faker fake`:
 
 ```sh
 wp faker fake image.yml user.yml post.yml
