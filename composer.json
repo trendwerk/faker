@@ -9,11 +9,6 @@
       "name": "Harold Angenent",
       "email": "harold@trendwerk.nl",
       "homepage": "https://github.com/haroldangenent"
-    },
-    {
-      "name": "Christian Pojoni",
-      "email": "dev@pojoni.at",
-      "homepage": "https://github.com/5queezer"
     }
   ],
   "autoload": {
