@@ -1,13 +1,12 @@
 <?php
-
 namespace Trendwerk\Faker;
 
 use WP_CLI;
 
-if (!class_exists('WP_CLI')) {
+if (! class_exists('WP_CLI')) {
     return;
 }
 
-WP_CLI::add_command('faker', __NAMESPACE__.'\\Command', [
-    'shortdesc' => 'Fake post and user data with WP-CLI.',
+WP_CLI::add_command('faker', __NAMESPACE__ . '\\Command', [
+    'shortdesc' => 'Fake post data with WP-CLI.',
 ]);
