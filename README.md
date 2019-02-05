@@ -131,11 +131,6 @@ Trendwerk\Faker\Entity\Post:
       address: '<address()>'
 ```
 
-
-### Attachments
-
-Currently the only type of supported attachments are images.
-
 ### Users
 
 ```yaml
@@ -151,6 +146,11 @@ Trendwerk\Faker\Entity\User:
 ```
 
 Generates 10 users with the role of an author.
+
+### Attachments
+
+Currently the only type of supported attachments are images.
+
 
 #### Images
 ```yaml
