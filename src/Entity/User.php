@@ -6,26 +6,26 @@ use WP_User_Query;
 
 class User extends Entity
 {
-    public $user_pass; // The plain-text user password.
-    public $user_login;  // The user's login username.
-    public $user_nicename;  // The URL-friendly user name.
-    public $user_url;  // The user URL.
-    public $user_email;  // The user email address.
-    public $display_name; // The user's display name. Default is the user's username.
-    public $nickname; // The user's nickname. Default is the user's username.
-    public $first_name; // The user's first name. For new users, will be used to build the first part of the user's display name if $display_name is not specified.
-    public $last_name; // The user's last name. For new users, will be used to build the second part of the user's display name if $display_name is not specified.
-    public $description; // The user's biographical description.
-    public $rich_editing; // Whether to enable the rich-editor for the user. False if not empty.
-    public $syntax_highlighting; // Whether to enable the rich code editor for the user. False if not empty.
-    public $comment_shortcuts; // Whether to enable comment moderation keyboard shortcuts for the user. Default false.
-    public $admin_color; // Admin color scheme for the user. Default 'fresh'.
-    public $use_ssl; // Whether the user should always access the admin over https. Default false.
-    public $user_registered; // Date the user registered. Format is 'Y-m-d H:i:s'.
-    public $show_admin_bar_front; // Whether to display the Admin Bar for the user on the site's front end. Default true.
-    public $role; // User's role.
-    public $locale; // User's locale. Default empty.
-    public $meta; // Users Meta Values
+    public $user_pass;
+    public $user_login; 
+    public $user_nicename; 
+    public $user_url; 
+    public $user_email; 
+    public $display_name;
+    public $nickname;
+    public $first_name;
+    public $last_name;
+    public $description;
+    public $rich_editing;
+    public $syntax_highlighting;
+    public $comment_shortcuts;
+    public $admin_color;
+    public $use_ssl;
+    public $user_registered;
+    public $show_admin_bar_front;
+    public $role;
+    public $locale;
+    public $meta;
 
     public function persist()
     {
