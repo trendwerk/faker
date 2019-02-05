@@ -2,5 +2,3 @@ composer.lock
 composer.phar
 node_modules
 vendor
-package-lock.json
-.idea/
