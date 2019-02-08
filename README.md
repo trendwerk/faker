@@ -5,6 +5,8 @@ Fake post data with [wp-cli](https://github.com/wp-cli/wp-cli). Made for WordPre
 
 Relies on [nelmio/alice](https://github.com/nelmio/alice) and [fzaninotto/Faker](https://github.com/fzaninotto/Faker).
 
+Extended with user capabilities by [5queezer/faker](https://github.com/5queezer/faker).
+
 ## Install
 ```
 wp package install trendwerk/faker
@@ -35,6 +37,7 @@ The YAML file supports:
 | Fields | Description |
 | :--- | :--- |
 | `WP_Post` | All properties from [`wp_insert_post`](https://developer.wordpress.org/reference/functions/wp_insert_post/)
+| `WP_User` | All properties from [`wp_insert_user`](https://developer.wordpress.org/reference/functions/wp_insert_user/)
 | `meta` | Post meta
 | `terms` | Terms for taxonomies, see [Terms](https://github.com/trendwerk/faker#terms)
 | `acf` | [Advanced Custom Fields](https://www.advancedcustomfields.com/) fields, see [ACF](https://github.com/trendwerk/faker#acf)
@@ -128,10 +131,26 @@ Trendwerk\Faker\Entity\Post:
       address: '<address()>'
 ```
 
+### Users
+
+```yaml
+Trendwerk\Faker\Entity\User:
+  user{1..10}:
+    user_login: '<username()>'
+    user_pass: '<username()>'
+    first_name: '<firstName()>'
+    last_name: '<lastName()>'
+    display_name: '<firstName()> <lastName()>'
+    user_email: '<email()>'
+    role: 'author'
+```
+
+Generates 10 users with the role of an author.
 
 ### Attachments
 
 Currently the only type of supported attachments are images.
+
 
 #### Images
 ```yaml
@@ -142,7 +161,7 @@ Trendwerk\Faker\Entity\Image:
 
 Generates 3 image attachments. Images are provided by [Faker](https://github.com/fzaninotto/Faker#fakerproviderimage), which in turn are provided by [LoremPixel](http://lorempixel.com/).
 
-#### Post + (Featured) Image
+#### Post + (Featured) Image + User
 ```yaml
 # image.yml
 Trendwerk\Faker\Entity\Image:
@@ -151,19 +170,30 @@ Trendwerk\Faker\Entity\Image:
 ```
 
 ```yaml
+# user.yml
+Trendwerk\Faker\Entity\User:
+  user{1..10}:
+    user_login: '<username()>'
+    user_pass: '<username()>'
+    user_email: '<email()>'
+    role: 'author'
+```
+
+```yaml
 # post.yml
 Trendwerk\Faker\Post:
   post{1..1}:
     post_content: <paragraphs(3, true)>
     post_title: '<sentence()>'
+    post_author: '@user*->id'
     meta:
       _thumbnail_id: '@image*->id'
 ```
 
-You can now supply both files to `wp faker fake`:
+You can now supply all three files to `wp faker fake`:
 
 ```sh
-wp faker fake image.yml post.yml
+wp faker fake image.yml user.yml post.yml
 ```
 
 **Make sure you load the file that contains the referenced objects first.**

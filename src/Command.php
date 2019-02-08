@@ -1,4 +1,5 @@
 <?php
+
 namespace Trendwerk\Faker;
 
 use WP_CLI;
@@ -28,7 +29,7 @@ final class Command
 
         $progressBar->finish();
 
-        WP_CLI::success(sprintf('Generated %d new posts.', $objectCount));
+        WP_CLI::success(sprintf('Generated %d new objects.', $objectCount));
     }
 
     /**
@@ -47,6 +48,7 @@ final class Command
         $dataTypes = [
             'Attachment',
             'Post',
+            'User',
         ];
 
         foreach ($dataTypes as $dataType) {
