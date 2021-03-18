@@ -76,6 +76,9 @@ class User extends Entity
     {
         $data = get_object_vars($this);
 
+        unset($data['acf']);
+        unset($data['meta']);
+
         return array_filter($data);
     }
 }
