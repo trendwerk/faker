@@ -6,11 +6,12 @@ use WP_User_Query;
 
 class User extends Entity
 {
+    public $acf;
     public $user_pass;
-    public $user_login; 
-    public $user_nicename; 
-    public $user_url; 
-    public $user_email; 
+    public $user_login;
+    public $user_nicename;
+    public $user_url;
+    public $user_email;
     public $display_name;
     public $nickname;
     public $first_name;
@@ -32,6 +33,13 @@ class User extends Entity
         $this->id = $this->create();
 
         update_user_meta($this->id, '_fake', true);
+
+        if (class_exists('acf') && $this->acf) {
+            foreach ($this->acf as $name => $value) {
+                $field = acf_get_field($name);
+                update_field($field['key'], $value, $this->id);
+            }
+        }
 
         if ($this->meta) {
             foreach ($this->meta as $key => $value) {
