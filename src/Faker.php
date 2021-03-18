@@ -1,7 +1,6 @@
 <?php
 namespace Trendwerk\Faker;
 
-// use Nelmio\Alice\Fixtures\Loader;
 use Nelmio\Alice\Loader\NativeLoader;
 
 final class Faker
