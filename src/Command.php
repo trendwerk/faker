@@ -1,5 +1,4 @@
 <?php
-
 namespace Trendwerk\Faker;
 
 use WP_CLI;

@@ -1,7 +1,7 @@
 <?php
 namespace Trendwerk\Faker;
 
-use Nelmio\Alice\PersisterInterface;
+use Fidry\AliceDataFixtures\Persistence\PersisterInterface;
 
 final class Persister implements PersisterInterface
 {
@@ -12,15 +12,15 @@ final class Persister implements PersisterInterface
         $this->progressBar = $progressBar;
     }
 
-    public function persist(array $objects)
+    public function persist($objects)
     {
-        foreach ($objects as $object) {
+        foreach ($objects->getObjects() as $object) {
             $object->persist();
             $this->progressBar->tick();
         }
     }
 
-    public function find($class, $id)
+    public function flush()
     {
     }
 }
